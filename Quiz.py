@@ -1,12 +1,16 @@
 from printd import printd
 from correctMessages import correctMessages
 import random
+import os
+
 
 class Quiz:
     def __init__(self, qBase):
         self.qBase = qBase
         self.right = 0
         self.wrong = 0
+        _, self.termWidth = os.popen('stty size', 'r').read().split()
+        self.termWidth = int(self.termWidth)
         self.menu()
         self.take()
         self.grade()
@@ -42,7 +46,7 @@ class Quiz:
     def take(self):
         for given in self.questions:
             printd("\n")
-            printd("="*40)
+            printd("="*self.termWidth)
             printd("\n")
             if not self.askMC(given):
                 return
