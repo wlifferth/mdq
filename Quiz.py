@@ -60,12 +60,13 @@ class Quiz:
                 choice = input(">>>> ").upper()
             if choice == "Q":
                 return False
-            if answers[options.index(choice)] == self.qBase.questions[given]:
+            if answers[options.index(choice)].answer == self.qBase.questions[given].answer:
                 printd(random.choice(correctMessages))
                 self.right += 1
                 self.qBase.questions[given].getRight()
             else:
                 printd("Sorry, that was wrong")
+                printd("Correct answer: " + self.qBase.questions[given].answer)
                 self.wrong += 1
                 self.qBase.questions[given].getWrong()
             return True
