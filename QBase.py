@@ -1,8 +1,9 @@
 import fileinput
-import pickle
+import dill as pickle
 import os
 import sys
 from Question import Question
+from Quiz import Quiz
 from collections import deque
 
 from printd import printd

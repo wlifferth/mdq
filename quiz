@@ -1,8 +1,8 @@
 #!/usr/local/bin/python3.5
 from QBase import QBase
 from Quiz import Quiz
+from sys import argv
 
-qb = QBase("example.md")
+qb = QBase(argv[1])
 q = Quiz(qb)
-# qb = q.qBase
 qb.__exit__()

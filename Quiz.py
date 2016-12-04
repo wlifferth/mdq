@@ -1,4 +1,3 @@
-from QBase import QBase
 from printd import printd
 from correctMessages import correctMessages
 import random
