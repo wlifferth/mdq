@@ -1,0 +1,8 @@
+#!/usr/local/bin/python3.5
+from QBase import QBase
+from Quiz import Quiz
+
+qb = QBase("example.md")
+q = Quiz(qb)
+# qb = q.qBase
+qb.__exit__()
