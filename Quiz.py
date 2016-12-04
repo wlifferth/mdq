@@ -28,6 +28,7 @@ class Quiz:
         printd("[0] No limit (take the whole quiz)")
         printd("[1] Limit to 10 questions")
         printd("[2] Limit to 20 questions")
+        printd("[3] Limit to weak questions")
         choices = list("0123")
         limitChoice = input(">>>> ")
         while(limitChoice not in choices):
@@ -39,6 +40,9 @@ class Quiz:
         elif limitChoice == '2' and len(self.qBase.questions) > 20:
             self.limit = 20
             self.questions = random.sample(list(self.qBase.questions.keys()), 20)
+        elif limitChoice == '3':
+            self.questions = list(self.qBase.getWeak())
+            self.limit = len(self.questions)
         else:
             self.limit = len(self.qBase.questions)
             self.questions = self.qBase.questions.keys()

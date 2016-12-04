@@ -47,6 +47,11 @@ class QBase:
             printd("Error: File {} not found".format(fileName))
             return
 
+    def getWeak(self):
+        for given, answer in self.questions.items():
+            if answer.getScore() <= 0.8:
+                yield given
+
     def __exit__(self):
         writeFile = open(self.mdqFileName, 'wb')
         pickle.dump(self.questions, writeFile, pickle.HIGHEST_PROTOCOL)
