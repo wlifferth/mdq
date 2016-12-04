@@ -23,6 +23,8 @@ class Question:
         self.history.extend([0])
 
     def getProgress(self):
+        length = 40
+        given = self.given if len(self.given) < length else self.given[:length - 3] + "..."
         if len(self.history) > 0:
-            return "{:20s}{:3.2f}:".format(self.given, self.getScore()) + "#" * int(10 * self.getScore())
-        return "{:20s} NYT:".format(self.given)
+            return "{:40s}{:3.2f}:".format(given, self.getScore()) + "#" * int(10 * self.getScore())
+        return "{:40s} NYT:".format(given)
