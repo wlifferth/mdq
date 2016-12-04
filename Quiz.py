@@ -48,9 +48,12 @@ class Quiz:
             self.questions = self.qBase.questions.keys()
 
     def take(self):
+        counter = 0
         for given in self.questions:
+            counter += 1
             printd("\n")
             printd("="*self.termWidth)
+            printd("Q {}/{}".format(counter, self.limit))
             printd("\n")
             if not self.askMC(given):
                 return
