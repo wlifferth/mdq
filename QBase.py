@@ -47,9 +47,9 @@ class QBase:
             printd("Error: File {} not found".format(fileName))
             return
 
-    def getWeak(self):
+    def getWeak(self, threshold=0.8):
         for given, answer in self.questions.items():
-            if answer.getScore() <= 0.8:
+            if answer.getScore() <= threshold:
                 yield given
 
     def __exit__(self):

@@ -41,7 +41,18 @@ class Quiz:
             self.limit = 20
             self.questions = random.sample(list(self.qBase.questions.keys()), 20)
         elif limitChoice == '3':
-            self.questions = list(self.qBase.getWeak())
+            printd("What threshold would you like to use?")
+            printd("[0] 0.1")
+            printd("[1] 0.25")
+            printd("[2] 0.5")
+            printd("[3] 0.75")
+            choices = list("0123")
+            limitChoice = input(">>>> ")
+            while(limitChoice not in choices):
+                printd("Sorry that wasn't a valid option. Try again.")
+                limitChoice = input(">>>> ")
+            thresholds = {"0": 0.1, "1": 0.25, "2": 0.5, "3": 0.75}
+            self.questions = list(self.qBase.getWeak(threshold=thresholds[limitChoice]))
             self.limit = len(self.questions)
         else:
             self.limit = len(self.qBase.questions)
