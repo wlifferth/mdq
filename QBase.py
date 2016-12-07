@@ -29,13 +29,13 @@ class QBase:
         if fileName in os.listdir():
             readFile = open(fileName)
             for line in readFile.readlines():
-                if line[0] == "#":
+                if line[0:2] == "# ":
                     if answer != "" and given not in questions.keys():
-                        questions[given] = Question(given=given, answer=answer)
+                        questions[given] = Question(given=given, answer=answer.strip())
                     given = line[2:].strip()
                     answer = ""
                 elif not line.isspace():
-                    answer += line.strip()
+                    answer += line.strip() + "\n"
             if answer != "" and given not in questions.keys():
                 questions[given] = Question(given=given, answer=answer)
             for k,v in questions.items():

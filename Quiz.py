@@ -64,7 +64,7 @@ class Quiz:
             answers[random.randint(0, 3)] = self.qBase.questions[given]
             options = list("ABCDQ")
             for x in range(0, 4):
-                printd(options[x] + ": " + answers[x].answer)
+                printd(options[x] + ": " + answers[x].answer + "\n")
             choice = input(">>>> ").upper()
             while choice not in options:
                 printd("Sorry that wasn't an option--try again")
