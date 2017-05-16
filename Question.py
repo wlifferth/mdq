@@ -4,11 +4,11 @@ class Question:
     def __init__(self, given, answer):
         self.given = given
         self.answer = answer
-        tenZeroes = [0] * 10
-        self.history = deque(tenZeroes, maxlen=10)
+        fiveZeroes = [0] * 5
+        self.history = deque(fiveZeroes, maxlen=5)
  
     def getScore(self):
-        weights = [.1, .1, .2, .2, .3, .4, .6, .7, .8, .8]
+        weights = [.1, .2, .7, .8, .8]
         if not self.history:
             return -1
         else:

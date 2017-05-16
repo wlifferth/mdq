@@ -1,5 +1,5 @@
 import time
 
-def printd(message):
-    print(message)
+def printd(*args):
+    print(*args)
     time.sleep(.05)

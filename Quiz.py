@@ -70,12 +70,12 @@ class Quiz:
                 return
 
     def askMC(self, given):
-            printd("GIVEN: " + given)
+            printd("GIVEN: ", given)
             answers = random.sample(list(self.qBase.questions.values()), 4)
             answers[random.randint(0, 3)] = self.qBase.questions[given]
             options = list("ABCDQ")
             for x in range(0, 4):
-                printd(options[x] + ": " + answers[x].answer + "\n")
+                printd(options[x], ": ", answers[x].answer, "\n")
             choice = input(">>>> ").upper()
             while choice not in options:
                 printd("Sorry that wasn't an option--try again")
@@ -88,7 +88,7 @@ class Quiz:
                 self.qBase.questions[given].getRight()
             else:
                 printd("Sorry, that was wrong")
-                printd("Correct answer: " + self.qBase.questions[given].answer)
+                printd("Correct answer: ", self.qBase.questions[given].answer)
                 self.wrong += 1
                 self.qBase.questions[given].getWrong()
             return True
